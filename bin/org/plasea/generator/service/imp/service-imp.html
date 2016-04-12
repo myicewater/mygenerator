@@ -1,0 +1,125 @@
+package ${generateInfo.serviceImpPackage};
+
+import java.io.Serializable;
+import java.util.List;
+
+import org.apache.log4j.Logger;
+import ${generateInfo.daoBasePackage}.${className}Dao;
+import ${generateInfo.modelPackage}.${className};
+import ${generateInfo.serviceBasePackage}.${className}Service;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+/**
+ * ${table.comment} 业务层实现
+ * @author 朱素海
+ *
+ */
+@Service
+@Transactional
+public class ${className}ServiceImp implements ${className}Service{
+
+	/**
+	 * 日志打印
+	 */
+	private static final Logger logger = Logger.getLogger(${className}ServiceImp.class);
+	
+	@Autowired
+	private ${className}Dao ${table.tableName}DaoImp;
+	
+	/**
+	 * 添加记录
+	 * @param ${table.tableName}
+	 */
+	@Override
+	public void save${className}(${className} ${table.tableName}) {
+		${table.tableName}DaoImp.save${className}(${table.tableName});
+	}
+
+	/**
+	 * 删除记录
+	 * @param ${table.tableName}
+	 */
+	@Override
+	public void remove${className}(${className} ${table.tableName}) {
+		${table.tableName}DaoImp.remove${className}(${table.tableName});
+	}
+
+	/**
+	 * 更新记录
+	 * @param ${table.tableName}
+	 */
+	@Override
+	public void update${className}(${className} ${table.tableName}) {
+		${table.tableName}DaoImp.update${className}(${table.tableName});
+	}
+
+	/**
+	 * 根据Id查询记录
+	 * @param entityClass
+	 * @param id
+	 */
+	@Override
+	public ${className} find${className}ById(Class<${className}> entityClass, Serializable id) {
+		return ${table.tableName}DaoImp.find${className}ById(entityClass, id);
+	}
+
+	/**
+	 * 增加或者更新记录
+	 * @param ${table.tableName}
+	 */
+	@Override
+	public void saveOrUpdate${className}(${className} ${table.tableName}) {
+		${table.tableName}DaoImp.saveOrUpdate${className}(${table.tableName});
+	}
+
+	/**
+	 * 根据sql查询实体List
+	 * sql应该设计在dao层的，这里只是表示dao层有此方法而已
+	 * @param sql
+	 * @return
+	 */
+	@Override
+	public List<${className}> find${className}sBySql(String sql) {
+		return ${table.tableName}DaoImp.find${className}sBySql(sql);
+	}
+
+	/**
+	 * 根据sql查询实体
+	 * sql应该设计在dao层的，这里只是表示dao层有此方法而已
+	 * @param sql
+	 * @return
+	 */
+	@Override
+	public ${className} find${className}BySql(String sql) {
+		return ${table.tableName}DaoImp.find${className}BySql(sql);
+	}
+
+	/**
+	 * 根据实体多个条件查询
+	 * @param ${table.tableName}
+	 * @return
+	 */
+	@Override
+	public List<${className}> find${className}ByExample(${className} ${table.tableName}) {
+		return ${table.tableName}DaoImp.find${className}ByExample(${table.tableName});
+	}
+
+	/**
+	 * 根据sql更新
+	 * sql应该设计在dao层的，这里只是表示dao层有此方法而已
+	 * @return
+	 */
+	@Override
+	public int update${className}BySql(String sql) {
+		return ${table.tableName}DaoImp.update${className}BySql(sql);
+	}
+
+	@Override
+	public List<${className}> getAll${className}() {
+		return ${table.tableName}DaoImp.getAll${className}();
+	}
+	
+	
+	
+}

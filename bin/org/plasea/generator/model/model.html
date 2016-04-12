@@ -1,0 +1,54 @@
+package ${generateInfo.modelPackage};  
+  
+
+import java.util.Date;  
+  
+import java.io.Serializable;  
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Transient;
+import javax.persistence.Table;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+
+/**
+ * ${table.comment}
+ * @author ÷ÏÀÿ∫£
+ * ${generateTime?string("yyyy-MM-dd HH:mm:ss")}
+ */
+@Entity  
+@Table(name="${table.realTableName}")
+public class ${className} implements Serializable{
+
+
+  
+<#list table.fields as field>
+
+	/**
+	 * ${field.comment}
+	 */
+	<#if field.key == 'PRI'>
+	@Id
+	@Column(name="${field.columnName}")
+	<#if field.extra == 'auto_increment'>
+	@GeneratedValue(strategy=GenerationType.AUTO)
+	</#if>
+	<#else>
+	@Column(name="${field.columnName}")
+	</#if>  
+    private ${field.type} ${field.field}; 
+     
+</#list>  
+      
+<#list table.fields as field> 
+    public void set${field.field?cap_first}(${field.type} ${field.field}){  
+        this.${field.field}=${field.field};  
+    }  
+      
+    public ${field.type} get<@upperFC>${field.field}</@upperFC>(){  
+        return this.${field.field};  
+    }  
+      
+</#list>  
+}  

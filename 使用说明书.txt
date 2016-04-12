@@ -1,0 +1,3 @@
+config.properties是生成项目用的输入配置，配置成目标项目相应的路径，
+
+然后运行GenerateMain.java 的main方法即可

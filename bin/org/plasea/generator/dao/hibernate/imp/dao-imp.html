@@ -1,0 +1,109 @@
+package ${generateInfo.daoImpPackage};
+
+import java.io.Serializable;
+import java.util.List;
+import ${generateInfo.daoBasePackage}.${className}Dao;
+import ${generateInfo.modelPackage}.${className};
+import org.springframework.stereotype.Repository;
+import ${generateInfo.baseDaoPackage}.BaseDao;
+/**
+ * ${table.comment}dao实现层
+ * @author 朱素海
+ * ${generateTime?string("yyyy-MM-dd HH:mm:ss")}
+ */
+@Repository
+public class ${className}DaoImp extends BaseDao<${className}> implements ${className}Dao{
+
+	/**
+	 * 添加记录
+	 * @param ${table.tableName}
+	 */
+	@Override
+	public void save${className}(${className} ${table.tableName}) {
+		this.saveEntity(${table.tableName});
+	}
+
+	/**
+	 * 删除记录
+	 * @param ${table.tableName}
+	 */
+	@Override
+	public void remove${className}(${className} ${table.tableName}) {
+		this.removeEntity(${table.tableName});
+	}
+
+	/**
+	 * 更新记录
+	 * @param ${table.tableName}
+	 */
+	@Override
+	public void update${className}(${className} ${table.tableName}) {
+		this.updateEntity(${table.tableName});
+	}
+
+	/**
+	 * 根据Id查询记录
+	 * @param entityClass
+	 * @param id
+	 */
+	@Override
+	public ${className} find${className}ById(Class<${className}> entityClass, Serializable id) {
+		return (${className})this.findEntityById(entityClass, id);
+	}
+
+	/**
+	 * 增加或者更新记录
+	 * @param ${table.tableName}
+	 */
+	@Override
+	public void saveOrUpdate${className}(${className} ${table.tableName}) {
+		this.saveOrUpdateEntity(${table.tableName});
+	}
+
+	/**
+	 * 根据sql查询实体List
+	 * @param sql
+	 * @return
+	 */
+	@Override
+	public List<${className}> find${className}sBySql(String sql) {
+		return (List<${className}>)this.findEntitiesBySql(sql);
+	}
+
+	/**
+	 * 根据sql查询实体
+	 * @param sql
+	 * @return
+	 */
+	@Override
+	public ${className} find${className}BySql(String sql) {
+		return (${className})this.findEntityBysql(sql);
+	}
+
+	/**
+	 * 根据实体多个条件查询
+	 * @param ${table.tableName}
+	 * @return
+	 */
+	@Override
+	public List<${className}> find${className}ByExample(${className} ${table.tableName}) {
+		return (List<${className}>)this.findEntityByExample(${table.tableName});
+	}
+
+	/**
+	 * 通过sql更新
+	 */
+	@Override
+	public int update${className}BySql(String sql) {
+		return this.updateBySql(sql);
+	}
+
+	@Override
+	public List<${className}> getAll${className}() {
+		// TODO Auto-generated method stub
+		return this.find${className}sBySql("from ${className}");
+	}
+	
+	
+
+}

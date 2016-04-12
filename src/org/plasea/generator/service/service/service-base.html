@@ -1,0 +1,80 @@
+package ${generateInfo.serviceBasePackage};
+
+import java.io.Serializable;
+import java.util.List;
+
+import ${generateInfo.modelPackage}.${className};
+
+
+/**
+ * ${table.comment}业务层接口
+ * @author 朱素海
+ * ${generateTime?string("yyyy-MM-dd HH:mm:ss")}
+ */
+public interface ${className}Service {
+
+	/**
+	 * 添加记录
+	 * @param ${table.tableName}
+	 */
+	public void save${className}(${className} ${table.tableName});
+	
+	/**
+	 * 删除记录
+	 * @param ${table.tableName}
+	 */
+	public void remove${className}(${className} ${table.tableName});
+	
+	/**
+	 * 更新记录
+	 * @param ${table.tableName}
+	 */
+	public void update${className}(${className} ${table.tableName});
+	
+	/**
+	 * 根据Id查询记录
+	 * @param entityClass
+	 * @param id
+	 */
+	public ${className} find${className}ById(Class<${className}> entityClass,Serializable id);
+	
+	/**
+	 * 增加或者更新记录
+	 * @param ${table.tableName}
+	 */
+	public void saveOrUpdate${className}(${className} ${table.tableName});
+	
+	/**
+	 * 根据sql查询实体List
+	 * @param sql
+	 * @return
+	 */
+	public List<${className}> find${className}sBySql(String sql);
+	
+	/**
+	 * 根据sql查询实体
+	 * @param sql
+	 * @return
+	 */
+	public ${className} find${className}BySql(String sql);
+	
+	/**
+	 * 根据实体多个条件查询
+	 * @param ${table.tableName}
+	 * @return
+	 */
+	public List<${className}> find${className}ByExample(${className} ${table.tableName});
+	
+	/**
+	 * 根据sql更新
+	 * @return
+	 */
+	public int update${className}BySql(String sql);
+	
+	
+	/**
+	 * 获取所有数据
+	 * @return
+	 */
+	public List<${className}> getAll${className}();
+}
