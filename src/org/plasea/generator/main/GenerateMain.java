@@ -48,6 +48,8 @@ public class GenerateMain {
 	public static String serviceImpPackage;
 	//控制层包名
 	public static String controllerPackage;
+	//classPath
+	public static String classPath;
 	
 	/**
 	 * 初始化系统变量
@@ -65,11 +67,12 @@ public class GenerateMain {
 		serviceBasePackage = PropUtil.getValue("serviceBasePackage");
 		serviceImpPackage = PropUtil.getValue("serviceImpPackage");
 		controllerPackage = PropUtil.getValue("controllerPackage");
+		classPath = PropUtil.getValue("classPath");
 		
 		String temp = PropUtil.getValue("projectPath");
 		
 		if(temp != null && !temp.equals("")){//如果配置了项目绝对路径
-			projectPath = temp;
+			projectPath = temp + classPath;
 		}else{//获取项目路径
 			String rootPath = getClass().getResource("/").getFile().toString();
 			rootPath = rootPath.substring(1);
@@ -80,7 +83,7 @@ public class GenerateMain {
 		    	newPath+= pathes[i]+"/";
 		    }
 		    System.out.println("newPath:"+newPath);
-		    newPath += projectName+"/src/";
+		    newPath += projectName+classPath;
 		    projectPath = newPath;
 		    System.out.println("项目路径："+projectPath);
 		}

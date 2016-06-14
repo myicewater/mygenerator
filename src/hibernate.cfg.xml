@@ -7,9 +7,9 @@
 	<property name="hibernate.connection.driver_class">
 		com.mysql.jdbc.Driver
 	</property>
-	<property name="hibernate.connection.password">root</property>
+	<property name="hibernate.connection.password">9fbank.com</property>
 	<property name="hibernate.connection.url">
-		jdbc:mysql://localhost:3306/hibernate
+		jdbc:mysql://192.168.20.15:3306/linkAppDev
 	</property>
 	<property name="hibernate.connection.username">root</property>
 	<property name="hibernate.dialect">
